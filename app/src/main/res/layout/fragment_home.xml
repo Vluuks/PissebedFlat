@@ -22,24 +22,28 @@
             android:id="@+id/rugImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/rug" />
+            android:src="@drawable/rug"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/bankImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bank" />
+            android:src="@drawable/bank"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/plantImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/plant" />
+            android:src="@drawable/plant"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/ballImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/voetbal" />
+            android:src="@drawable/voetbal"
+            android:visibility="invisible" />
     </FrameLayout>
 </LinearLayout>

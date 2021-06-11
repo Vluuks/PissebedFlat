@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.example.depissebedflat.databinding.FragmentHomeBinding;
 import com.example.depissebedflat.models.Item;
 import com.example.depissebedflat.models.Pissebed;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
@@ -35,7 +37,19 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        ArrayList<Item> currentItems = getPresentItems();
+
+        for (Item i : currentItems) {
+            if (i.isOwned()) {
+                ((ImageView) root.findViewById(i.getImageViewId())).setVisibility(View.VISIBLE);
+            }
+        }
+
         return root;
+    }
+
+    public ArrayList<Item> getPresentItems() {
+        return Item.getAllItems(); // for now ownership is set on init, do SP later
     }
 
     public ArrayList<Pissebed> getPresentPissebedden(ArrayList<Item> items) {
