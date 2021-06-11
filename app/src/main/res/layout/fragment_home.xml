@@ -45,5 +45,26 @@
             android:layout_height="wrap_content"
             android:src="@drawable/voetbal"
             android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/appelImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/appel"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/chipsImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chips"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/dumbbellImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dumbbell"
+            android:visibility="invisible" />
     </FrameLayout>
 </LinearLayout>
