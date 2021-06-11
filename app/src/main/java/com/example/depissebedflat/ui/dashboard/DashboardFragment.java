@@ -57,6 +57,7 @@ public class DashboardFragment extends Fragment {
 
         AdapterView.OnItemClickListener listener = new OnItemClickListenerGrid();
         gv.setOnItemClickListener(listener);
+        gv.setOnItemLongClickListener(new OnItemLongClickListenerGrid());
 
         return root;
     }
@@ -79,6 +80,23 @@ public class DashboardFragment extends Fragment {
             editor.apply();
 
             ia.notifyDataSetChanged();
+        }
+    }
+
+    private class OnItemLongClickListenerGrid implements AdapterView.OnItemLongClickListener {
+
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            Item currentItem = (Item) parent.getItemAtPosition(position);
+            currentItem.setOwned(false);
+
+            SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(currentItem.getName(), false);
+            editor.apply();
+
+            ia.notifyDataSetChanged();
+            return true;
         }
     }
 }
