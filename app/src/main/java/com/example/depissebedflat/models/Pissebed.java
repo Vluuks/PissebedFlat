@@ -1,5 +1,7 @@
 package com.example.depissebedflat.models;
 
+import android.util.Log;
+
 import com.example.depissebedflat.R;
 
 import java.util.ArrayList;
@@ -36,6 +38,14 @@ public class Pissebed {
 
         this.drawableId = drawableId;
         this.imageViewId = imageViewId;
+    }
+
+    public int getDrawableId() {
+        return drawableId;
+    }
+
+    public int getImageViewId() {
+        return imageViewId;
     }
 
     public static ArrayList<Pissebed> getAllPissebedden() {
@@ -83,10 +93,26 @@ public class Pissebed {
     }
 
     public Boolean requirementsMet(ArrayList<Item> itemsPresent) {
+
+        Log.d("pissebed--true", itemsPresent.toString());
         if (this.requiredItem != null) {
             return itemsPresent.contains(this.requiredItem);
         }
         // We require nothing so requirement is met
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Pissebed{" +
+                "name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", color='" + color + '\'' +
+                ", size=" + size +
+                ", drawableId=" + drawableId +
+                ", imageViewId=" + imageViewId +
+                ", likedItems=" + likedItems +
+                ", requiredItem=" + requiredItem +
+                '}';
     }
 }

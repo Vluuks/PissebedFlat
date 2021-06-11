@@ -2,6 +2,7 @@ package com.example.depissebedflat.ui.home;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,6 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
-    private ArrayList<Item> itemsOwned;
-    private ArrayList<Pissebed> pissebeddenPresent;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -46,11 +44,16 @@ public class HomeFragment extends Fragment {
 
 
         ArrayList<Item> currentItems = getPresentItems();
+        ArrayList<Pissebed> currentPissebedden = getPresentPissebedden(currentItems);
 
         for (Item i : currentItems) {
             if (i.isOwned()) {
                 ((ImageView) root.findViewById(i.getImageViewId())).setVisibility(View.VISIBLE);
             }
+        }
+
+        for (Pissebed p : currentPissebedden) {
+            ((ImageView) root.findViewById(p.getImageViewId())).setVisibility(View.VISIBLE);
         }
 
         return root;
@@ -60,13 +63,19 @@ public class HomeFragment extends Fragment {
 
         SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
         ArrayList<Item> items = Item.getAllItems();
+        ArrayList<Item> presentItems = new ArrayList<Item>();
+
 
         for(Item i : items) {
             boolean isOwned = prefs.getBoolean(i.getName(), false);
             i.setOwned(isOwned);
+
+            if (isOwned) {
+                presentItems.add(i);
+            }
         }
 
-        return items;
+        return presentItems;
     }
 
     public ArrayList<Pissebed> getPresentPissebedden(ArrayList<Item> items) {
@@ -75,9 +84,12 @@ public class HomeFragment extends Fragment {
 
         for (Pissebed p : pissebedden) {
             if (p.requirementsMet(items)) {
+                Log.d("pissebed--true", "true");
                 presentPissebedden.add(p);
             }
         }
+
+        Log.d("pissebed--true", presentPissebedden.toString());
         return presentPissebedden;
     }
 
