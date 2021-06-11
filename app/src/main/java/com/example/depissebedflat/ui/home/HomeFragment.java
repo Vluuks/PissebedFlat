@@ -1,5 +1,6 @@
 package com.example.depissebedflat.ui.home;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.example.depissebedflat.models.Pissebed;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
 
@@ -49,7 +52,16 @@ public class HomeFragment extends Fragment {
     }
 
     public ArrayList<Item> getPresentItems() {
-        return Item.getAllItems(); // for now ownership is set on init, do SP later
+
+        SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
+        ArrayList<Item> items = Item.getAllItems();
+
+        for(Item i : items) {
+            boolean isOwned = prefs.getBoolean(i.getName(), false);
+            i.setOwned(isOwned);
+        }
+
+        return items;
     }
 
     public ArrayList<Pissebed> getPresentPissebedden(ArrayList<Item> items) {
