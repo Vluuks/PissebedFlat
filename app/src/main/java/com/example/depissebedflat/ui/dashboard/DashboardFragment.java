@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.depissebedflat.R;
 import com.example.depissebedflat.databinding.FragmentDashboardBinding;
+import com.example.depissebedflat.models.Item;
+import com.example.depissebedflat.ui.notifications.PissebeddenAdapter;
+
+import java.util.ArrayList;
 
 public class DashboardFragment extends Fragment {
 
@@ -27,6 +33,11 @@ public class DashboardFragment extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        ArrayList<Item> items = Item.getAllItems();
+
+        GridView gv = root.findViewById(R.id.gridView);
+        gv.setAdapter(new ItemAdapter(this.getContext(), R.layout.grid_item_item, items));
 
         return root;
     }
