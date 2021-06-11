@@ -2,6 +2,7 @@ package com.example.depissebedflat;
 
 import android.os.Bundle;
 
+import com.example.depissebedflat.models.Pissebed;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.depissebedflat.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        ArrayList<Pissebed> allPissebedden = this.initAllPissebedden();
+
     }
 
+    protected ArrayList<Pissebed> initAllPissebedden() {
+        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
+                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
+                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
+                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
+                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
+                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
+        ));
+        return pissebedden
+    }
 }
