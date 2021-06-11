@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,8 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        ListView lv = root.findViewById(R.id.listView);
         return root;
     }
 
