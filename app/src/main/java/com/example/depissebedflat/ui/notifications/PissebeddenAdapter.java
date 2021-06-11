@@ -38,9 +38,10 @@ public class PissebeddenAdapter extends ArrayAdapter {
         // Access the right object in the list
         Pissebed currentPissebed = (Pissebed) pissebedden.get(position);
 
-
         // Make changes to the convertView, such as displaying a certain text
         ((TextView) convertView.findViewById(R.id.pissebedName)).setText(currentPissebed.getName());
+        ((TextView) convertView.findViewById(R.id.pissebedColor)).setText(currentPissebed.getColor());
+        ((TextView) convertView.findViewById(R.id.pissebedLength)).setText(Integer.toString(currentPissebed.getSize()) + " cm");
 
         // Return the altered convertview
         return convertView;

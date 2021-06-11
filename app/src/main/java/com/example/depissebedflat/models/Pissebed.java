@@ -52,13 +52,13 @@ public class Pissebed {
         if (pissebedden == null) {
             ArrayList<Item> allItems = Item.getAllItems();
             pissebedden = new ArrayList<>(Arrays.asList(
-                    new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40, allItems.get(1), R.drawable.schors, R.id.schorsImage),
-                    new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8, allItems.get(3), R.drawable.prissie, R.id.prissieImage),
-                    new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45, allItems.get(6), R.drawable.joenko, R.id.joenkoImage),
-                    new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25, allItems.get(4), R.drawable.isobel, R.id.isobelImage),
-                    new Pissebed("Per", "Armadillidum Vulgare", "gray", 15, allItems.get(5), R.drawable.per, R.id.perImage),
-                    new Pissebed("Barkie", "Cubaris", "green", 40, allItems.get(2), R.drawable.barkie, R.id.barkieImage),
-                    new Pissebed("Amber", "Cubaris Amber", "yellow", 40, allItems.get(0), R.drawable.amber, R.id.amberImage)
+                    new Pissebed("Schors", "Armadillidium Vulgare", "Grijs", 40, allItems.get(1), R.drawable.schors, R.id.schorsImage),
+                    new Pissebed("Prissie", "Armadillidium Maculatum", "Zwart met wit", 8, allItems.get(3), R.drawable.prissie, R.id.prissieImage),
+                    new Pissebed("Joenko", "Porcello Scaber Lava", "Rood", 45, allItems.get(6), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Isobel", "Armadillidum Vulgare", "Grijs", 25, allItems.get(4), R.drawable.isobel, R.id.isobelImage),
+                    new Pissebed("Per", "Armadillidum Vulgare", "Grijs", 15, allItems.get(5), R.drawable.per, R.id.perImage),
+                    new Pissebed("Barkie", "Cubaris", "Groen", 40, allItems.get(2), R.drawable.barkie, R.id.barkieImage),
+                    new Pissebed("Amber", "Cubaris Amber", "Geel", 40, allItems.get(0), R.drawable.amber, R.id.amberImage)
             ));
         }
         return pissebedden;
