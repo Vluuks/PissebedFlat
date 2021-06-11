@@ -101,5 +101,19 @@
             android:layout_height="wrap_content"
             android:src="@drawable/per"
             android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/prissieImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/prissie"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/barkieImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/barkie"
+            android:visibility="invisible" />
     </FrameLayout>
 </LinearLayout>
