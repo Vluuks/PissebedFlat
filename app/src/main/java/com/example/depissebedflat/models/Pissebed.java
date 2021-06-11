@@ -8,6 +8,8 @@ import java.util.Arrays;
 */
 public class Pissebed {
 
+    private static ArrayList<Pissebed> pissebedden;
+
     private String name;
     private String species;
     private String color;
@@ -20,7 +22,7 @@ public class Pissebed {
     private ArrayList<Item> likedItems;
     private Item requiredItem;
 
-    public Pissebed(String name, String species, String color, int size) {
+    public Pissebed(String name, String species, String color, int size, Item requiredItem) {
         this.name = name;
         this.species = species;
         this.color = color;
@@ -28,14 +30,20 @@ public class Pissebed {
     }
 
     public static ArrayList<Pissebed> getAllPissebedden() {
-        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
-                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
-                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
-                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
-                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
-                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
-                // blauw mr snuggles
-        ));
+        if (pissebedden == null) {
+
+            ArrayList<Item> allItems = Item.getAllItems();
+            pissebedden = new ArrayList<>(Arrays.asList(
+                    new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40, allItems.get(1)),
+                    new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8, allItems.get(3)),
+                    new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45, allItems.get(2)),
+                    new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25, allItems.get(2)),
+                    new Pissebed("Per", "Armadillidum Vulgare", "gray", 15, allItems.get(2)),
+                    new Pissebed("Nori", "Cubaris", "black", 40, allItems.get(2)),
+                    new Pissebed("Tikkie", "Armadillidium Maculatum", "black and white", 40, allItems.get(2))
+                    // blauw mr snuggles
+            ));
+        }
         return pissebedden;
     }
 
