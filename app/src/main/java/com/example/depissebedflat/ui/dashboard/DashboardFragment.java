@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,6 +40,9 @@ public class DashboardFragment extends Fragment {
         GridView gv = root.findViewById(R.id.gridView);
         gv.setAdapter(new ItemAdapter(this.getContext(), R.layout.grid_item_item, items));
 
+        AdapterView.OnItemClickListener listener = new OnItemClickListenerGrid();
+        gv.setOnItemClickListener(listener);
+
         return root;
     }
 
@@ -46,5 +50,14 @@ public class DashboardFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private class OnItemClickListenerGrid implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Item clickedItem = (Item) adapterView.getItemAtPosition(i);
+
+
+        }
     }
 }
