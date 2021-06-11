@@ -1,10 +1,10 @@
-package com.example.depissebedflat.ui.dashboard;
+package com.example.depissebedflat.models;
 
 import com.example.depissebedflat.models.Pissebed;
 
 import java.util.ArrayList;
 
-class Item {
+public class Item {
 
     private String name;
     private String description;

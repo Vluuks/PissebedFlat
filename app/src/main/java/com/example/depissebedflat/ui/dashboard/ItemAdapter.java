@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.depissebedflat.R;
+import com.example.depissebedflat.models.Item;
 
 import java.util.ArrayList;
 
