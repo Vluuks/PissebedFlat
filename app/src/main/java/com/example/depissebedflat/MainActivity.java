@@ -41,15 +41,4 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Pissebed> allPissebedden = this.initAllPissebedden();
 
     }
-
-    protected ArrayList<Pissebed> initAllPissebedden() {
-        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
-                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
-                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
-                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
-                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
-                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
-        ));
-        return pissebedden
-    }
 }
