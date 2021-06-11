@@ -32,7 +32,7 @@ public class Item {
                     new Item("Kleed", "Voor pissebedden die graag op de grond zitten", R.drawable.rug, R.id.rugImage, 200, false),
                     new Item("Plant", "Ook handig om onder te schuilen", R.drawable.plant, R.id.plantImage, 80, false),
                     new Item("Voetbal", "Sommige pissebedden zijn dol op voetbal", R.drawable.voetbal, R.id.ballImage, 50, false),
-                    new Item("Dumbbell", "Voor de gains!!!!", R.drawable.dumbbell, R.id.dumbbellImage, 160, false),
+                    new Item("Gewicht", "Voor de gains!!!!", R.drawable.dumbbell, R.id.dumbbellImage, 160, false),
                     new Item("Chips", "Krokante blaadjes", R.drawable.chips, R.id.chipsImage, 20, false),
                     new Item("Appel", "Voor de gezonde trek", R.drawable.appel, R.id.appelImage, 10, false)
             ));
