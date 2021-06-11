@@ -1,5 +1,7 @@
 package com.example.depissebedflat.models;
 
+import com.example.depissebedflat.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -15,6 +17,9 @@ public class Pissebed {
     private String color;
     private int size;
 
+    private int drawableId;
+    private int imageViewId;
+
     // Determine what items are liked by this pissebed
     // Construct happiness bar based on amount of liked items
     // There is also a required item you need before they come at all!
@@ -22,26 +27,28 @@ public class Pissebed {
     private ArrayList<Item> likedItems;
     private Item requiredItem;
 
-    public Pissebed(String name, String species, String color, int size, Item requiredItem) {
+    public Pissebed(String name, String species, String color, int size, Item requiredItem, int drawableId, int imageViewId) {
         this.name = name;
         this.species = species;
         this.color = color;
         this.size = size;
+        this.requiredItem = requiredItem;
+
+        this.drawableId = drawableId;
+        this.imageViewId = imageViewId;
     }
 
     public static ArrayList<Pissebed> getAllPissebedden() {
         if (pissebedden == null) {
-
             ArrayList<Item> allItems = Item.getAllItems();
             pissebedden = new ArrayList<>(Arrays.asList(
-                    new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40, allItems.get(1)),
-                    new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8, allItems.get(3)),
-                    new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45, allItems.get(2)),
-                    new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25, allItems.get(2)),
-                    new Pissebed("Per", "Armadillidum Vulgare", "gray", 15, allItems.get(2)),
-                    new Pissebed("Nori", "Cubaris", "black", 40, allItems.get(2)),
-                    new Pissebed("Tikkie", "Armadillidium Maculatum", "black and white", 40, allItems.get(2))
-                    // blauw mr snuggles
+                    new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40, allItems.get(0), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8, allItems.get(3), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45, allItems.get(6), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25, allItems.get(4), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Per", "Armadillidum Vulgare", "gray", 15, allItems.get(5), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Barkie", "Cubaris", "green", 40, allItems.get(2), R.drawable.joenko, R.id.joenkoImage),
+                    new Pissebed("Amber", "Cubaris Amber", "yellow", 40, allItems.get(1), R.drawable.joenko, R.id.joenkoImage)
             ));
         }
         return pissebedden;
