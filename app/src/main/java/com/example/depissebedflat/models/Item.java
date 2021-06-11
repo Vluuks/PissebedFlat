@@ -46,6 +46,10 @@ public class Item {
         return drawableId;
     }
 
+    public void setOwned(boolean owned) {
+        this.owned = owned;
+    }
+
     public int getPrice() {
         return price;
     }

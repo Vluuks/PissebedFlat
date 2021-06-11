@@ -1,5 +1,6 @@
 package com.example.depissebedflat.ui.dashboard;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,8 @@ import com.example.depissebedflat.ui.notifications.PissebeddenAdapter;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
@@ -36,6 +39,14 @@ public class DashboardFragment extends Fragment {
         View root = binding.getRoot();
 
         ArrayList<Item> items = Item.getAllItems();
+
+        // Set ownership
+        SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
+
+        for(Item i : items) {
+            boolean isOwned = prefs.getBoolean(i.getName(), false);
+            i.setOwned(isOwned);
+        }
 
         GridView gv = root.findViewById(R.id.gridView);
         gv.setAdapter(new ItemAdapter(this.getContext(), R.layout.grid_item_item, items));
@@ -55,9 +66,12 @@ public class DashboardFragment extends Fragment {
     private class OnItemClickListenerGrid implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Item clickedItem = (Item) adapterView.getItemAtPosition(i);
+            Item currentItem = (Item) adapterView.getItemAtPosition(i);
 
-
+            SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(currentItem.getName(), true);
+            editor.apply();
         }
     }
 }

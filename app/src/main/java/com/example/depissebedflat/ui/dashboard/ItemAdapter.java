@@ -33,13 +33,22 @@ public class ItemAdapter extends ArrayAdapter {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.grid_item_item, parent, false);
         }
 
-        ImageView image = convertView.findViewById(R.id.picture_list);
-        TextView text = convertView.findViewById(R.id.name_list);
+        ImageView image = convertView.findViewById(R.id.itemPicture);
+        TextView text = convertView.findViewById(R.id.nameText);
+        TextView description = convertView.findViewById(R.id.descriptionText);
+        TextView owned = convertView.findViewById(R.id.ownedText);
 
         Item currentItem = itemList.get(position);
         image.setImageResource(currentItem.getDrawableId());
         text.setText(currentItem.getName());
+        description.setText(currentItem.getDescription());
 
+        if (currentItem.isOwned()) {
+            owned.setText("Dit item heb je!");
+        }
+        else {
+            owned.setText("Je hebt dit item nog niet");
+        }
         return convertView;
     }
 }
