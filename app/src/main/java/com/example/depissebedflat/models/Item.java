@@ -29,8 +29,10 @@ public class Item {
                 new Item("Bank", "Handig als je ergens lekker wil chillen", R.drawable.bank, R.id.bankImage, 1000, true),
                 new Item("Kleed", "Voor pissebedden die graag op de grond zitten", R.drawable.bank, R.id.rugImage, 200, true),
                 new Item("Plant", "Ook handig om onder te schuilen", R.drawable.bank, R.id.plantImage, 80, false),
-                new Item("Voetbal", "Sommige pissebedden zijn dol op voetbal", R.drawable.bank, R.id.ballImage, 50, false)
-            ));
+                new Item("Voetbal", "Sommige pissebedden zijn dol op voetbal", R.drawable.bank, R.id.ballImage, 50, false),
+                new Item("Voet2", "Sommige pissebedden zijn dol op voetbal", R.drawable.bank, R.id.ballImage, 50, false)
+
+        ));
         return items;
     }
 
