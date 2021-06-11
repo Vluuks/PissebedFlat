@@ -29,6 +29,7 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     private FragmentDashboardBinding binding;
+    private ItemAdapter ia;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,7 +50,10 @@ public class DashboardFragment extends Fragment {
         }
 
         GridView gv = root.findViewById(R.id.gridView);
-        gv.setAdapter(new ItemAdapter(this.getContext(), R.layout.grid_item_item, items));
+
+
+        ia = new ItemAdapter(this.getContext(), R.layout.grid_item_item, items);
+        gv.setAdapter(ia);
 
         AdapterView.OnItemClickListener listener = new OnItemClickListenerGrid();
         gv.setOnItemClickListener(listener);
@@ -67,11 +71,14 @@ public class DashboardFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Item currentItem = (Item) adapterView.getItemAtPosition(i);
+            currentItem.setOwned(true);
 
             SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(currentItem.getName(), true);
             editor.apply();
+
+            ia.notifyDataSetChanged();
         }
     }
 }

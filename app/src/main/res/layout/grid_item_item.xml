@@ -24,21 +24,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Tim"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <TextView
             android:id="@+id/descriptionText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:layout_height="62dp"
+            android:text="TextView"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"/>
 
         <TextView
             android:id="@+id/ownedText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -47,7 +47,7 @@ public class ItemAdapter extends ArrayAdapter {
             owned.setText("Dit item heb je!");
         }
         else {
-            owned.setText("Je hebt dit item nog niet");
+            owned.setText(Integer.toString(currentItem.getPrice()));
         }
         return convertView;
     }

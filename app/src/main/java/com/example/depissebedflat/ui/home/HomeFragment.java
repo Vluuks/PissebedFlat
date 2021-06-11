@@ -40,6 +40,11 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+        SharedPreferences prefs = getContext().getSharedPreferences("settings", MODE_PRIVATE);
+//        prefs.edit().clear().commit();
+
+
         ArrayList<Item> currentItems = getPresentItems();
 
         for (Item i : currentItems) {
