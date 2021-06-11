@@ -33,24 +33,12 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        ArrayList<Pissebed> pissebedden = this.initAllPissebedden();
+        ArrayList<Pissebed> pissebedden = Pissebed.getAllPissebedden();
 
         ListView lv = root.findViewById(R.id.listView);
         lv.setAdapter(new PissebeddenAdapter(this.getContext(), R.layout.row_item_pissebed, pissebedden));
 
         return root;
-    }
-
-    protected ArrayList<Pissebed> initAllPissebedden() {
-        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
-                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
-                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
-                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
-                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
-                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
-                // blauw mr snuggles
-        ));
-        return pissebedden;
     }
 
     @Override

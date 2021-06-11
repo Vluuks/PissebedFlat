@@ -14,11 +14,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.depissebedflat.R;
 import com.example.depissebedflat.databinding.FragmentHomeBinding;
+import com.example.depissebedflat.models.Item;
+import com.example.depissebedflat.models.Pissebed;
+
+import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+
+    private ArrayList<Item> itemsOwned;
+    private ArrayList<Pissebed> pissebeddenPresent;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +42,21 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+
         return root;
+    }
+
+    public ArrayList<Pissebed> getPresentPissebedden(ArrayList<Item> items) {
+        ArrayList<Pissebed> pissebedden = Pissebed.getAllPissebedden();
+        ArrayList<Pissebed> presentPissebedden = new ArrayList<Pissebed>();
+
+        for (Pissebed p : pissebedden) {
+            if (p.requirementsMet(items)) {
+                presentPissebedden.add(p);
+            }
+        }
+        return presentPissebedden;
     }
 
     @Override

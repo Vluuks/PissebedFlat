@@ -1,9 +1,5 @@
 package com.example.depissebedflat.models;
 
-import com.example.depissebedflat.models.Pissebed;
-
-import java.util.ArrayList;
-
 public class Item {
 
     private String name;

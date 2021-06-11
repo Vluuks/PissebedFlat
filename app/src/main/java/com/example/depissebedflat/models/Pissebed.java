@@ -1,6 +1,7 @@
 package com.example.depissebedflat.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
     A class depicting a plant of a certain type and size, and the color of the pot it is in.
@@ -24,6 +25,18 @@ public class Pissebed {
         this.species = species;
         this.color = color;
         this.size = size;
+    }
+
+    public static ArrayList<Pissebed> getAllPissebedden() {
+        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
+                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
+                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
+                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
+                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
+                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
+                // blauw mr snuggles
+        ));
+        return pissebedden;
     }
 
     public String getName() {
