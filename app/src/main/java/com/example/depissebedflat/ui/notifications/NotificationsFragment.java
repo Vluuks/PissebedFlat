@@ -15,6 +15,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.depissebedflat.R;
 import com.example.depissebedflat.databinding.FragmentNotificationsBinding;
+import com.example.depissebedflat.models.Pissebed;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NotificationsFragment extends Fragment {
 
@@ -29,16 +33,24 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        ArrayList<Pissebed> pissebedden = this.initAllPissebedden();
 
         ListView lv = root.findViewById(R.id.listView);
+        lv.setAdapter(new PissebeddenAdapter(this.getContext(), R.layout.row_item_pissebed, pissebedden));
+
         return root;
+    }
+
+    protected ArrayList<Pissebed> initAllPissebedden() {
+        ArrayList<Pissebed> pissebedden = new ArrayList<>(Arrays.asList(
+                new Pissebed("Schors", "Armadillidium Vulgare", "gray", 40),
+                new Pissebed("Prissie", "Armadillidium Maculatum", "black and white", 8),
+                new Pissebed("Joenko", "Porcello Scaber Lava", "red", 45),
+                new Pissebed("Isobel", "Armadillidum Vulgare", "gray", 25),
+                new Pissebed("Per", "Armadillidum Vulgare", "gray", 15)
+                // blauw mr snuggles
+        ));
+        return pissebedden;
     }
 
     @Override
